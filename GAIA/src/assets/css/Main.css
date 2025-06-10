@@ -1,0 +1,498 @@
+/* =======================
+   1. RESET Y BASE
+======================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+/* Tema oscuro */
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Tema claro */
+body {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 10px;
+  max-width: 100%;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  margin: 0 auto;
+  background-color: #f0fdf4;
+}
+
+/* Scrollbar estilizado (opcional) */
+.container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+
+/* =======================
+   2. PANELES PRINCIPALES
+======================= */
+
+/* Panel Izquierdo */
+.left-panel {
+  flex: 0 0 35%;
+  max-width: 480px;
+  min-width: 300px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  text-align: center;
+}
+
+.left-panel h2 {
+  margin-bottom: 16px;
+}
+
+/* Imagen circular con rotación */
+.section-banner {
+  width: 370px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  margin: 0 auto 70px auto;
+}
+
+.section-banner img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  animation: spin 20s linear infinite;
+}
+
+/* Panel Central */
+.center-panel {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  text-align: center;
+}
+
+/* Panel Derecho */
+.right-panel {
+  flex: 0 0 35%;
+  max-width: 350px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  text-align: center;
+}
+
+.right-panel .cardUser {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.right-panel .user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right-panel .user-info p.bold {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.right-panel .user-info img.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+/* =======================
+   3. ESTADÍSTICAS
+======================= */
+.stats .stat-item,
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 46px;
+}
+
+.stat-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.stat-title {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 0;
+}
+
+.stat-value {
+  color: #666;
+  font-size: 14px;
+  margin: 0;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #22c55e;
+  border-radius: 6px;
+}
+
+/* =======================
+   4. MODALES
+======================= */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  text-align: left;
+}
+
+.perfil-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preview-imagen {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-top: 8px;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-contenido {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-botones {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-aceptar {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-cancelar {
+  background-color: #ccc;
+  color: black;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.modal-buttons button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.eliminar-cuenta-wrapper {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.btn-eliminar-cuenta {
+  background-color: transparent;
+  color: red;
+  border: 1px solid red;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-eliminar-cuenta:hover {
+  background-color: red;
+  color: white;
+}
+
+.modal-buttons button:first-child {
+  background-color: #22c55e;
+  color: white;
+}
+
+.modal-buttons button:last-child {
+  background-color: #ccc;
+}
+
+/* =======================
+   5. BOTONES Y OTROS
+======================= */
+.right-panel .buttons {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
+}
+
+.right-panel .buttons button {
+  width: 100%;
+  flex: 1;
+  padding: 8px;
+  color: #868585;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+/* Avatar editable */
+.avatar-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.edit-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #22c55e;
+  color: white;
+  padding: 4px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+
+/* =======================
+   6. MEDIA QUERIES
+======================= */
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.left-panel,
+.right-panel,
+.center-panel {
+  flex: 1;
+  height: auto;
+}
+
+/* Imagen planeta dentro de .section-banner */
+.section-banner {
+  width: 100%;
+  margin-bottom: 44px;
+}
+
+.section-banner img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* 📱 Móviles: hasta 767px */
+@media (max-width: 767px) {
+
+  html,
+  body {
+    height: auto;
+    overflow: auto;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 16px;
+    gap: 24px;
+    padding-top: 300%;
+    height: 100vh;
+    max-height: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .left-panel,
+  .right-panel,
+  .center-panel {
+    width: 100%;
+    height: auto;
+  }
+
+  .left-panel {
+    order: 1;
+  }
+
+  .right-panel {
+    order: 2;
+  }
+
+  .center-panel {
+    order: 3;
+    align-items: center;
+  }
+}
+
+
+/* 📱 Tablets: 768px a 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 16px;
+
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 48%;
+    height: auto;
+  }
+
+
+  .center-panel {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+  }
+
+
+  .left-panel {
+    order: 1;
+  }
+
+  .right-panel {
+    order: 2;
+  }
+
+  .center-panel {
+    order: 3;
+  }
+}
