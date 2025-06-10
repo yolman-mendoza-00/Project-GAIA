@@ -1,0 +1,93 @@
+/* Reseteo y base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden; /* elimina scroll innecesario */
+}
+
+.auth-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Secciones lado a lado */
+.image-section-auth,
+.form-section-auth {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: transform 0.5s ease;
+}
+
+/* Imagen por defecto a la izquierda */
+.image-section-auth {
+  left: 0;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Formulario por defecto a la derecha */
+.form-section-auth {
+  right: 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Imagen cambia a la derecha en modo registro */
+.auth-container.register-mode .image-section-auth {
+  transform: translateX(100%);
+}
+
+/* Formulario se mueve a la izquierda en modo registro */
+.auth-container.register-mode .form-section-auth {
+  transform: translateX(-100%);
+}
+
+/* Imagen interna */
+.auth-image {
+  width: 80%;
+  height: 95%;
+  border-radius: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  html, body {
+    overflow: auto; /* permitir scroll si es necesario */
+  }
+
+  .auth-container {
+    flex-direction: column;
+    height: auto;
+    position: static;
+  }
+
+  .image-section-auth,
+  .form-section-auth {
+    position: static;
+    width: 100%;
+    height: auto;
+    transform: none !important; /* desactiva animaciones en mobile */
+  }
+
+  .auth-image {
+    width: 90%;
+    height: auto;
+    margin: 20px 0;
+  }
+}

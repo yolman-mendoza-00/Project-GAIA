@@ -1,0 +1,186 @@
+/* Reset y base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.reto-container {
+  background-color: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 16px;
+  max-width: 600px;
+  width: 100%;
+  align-self: center;
+}
+
+.reto-container h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.reto-subtitle {
+  font-size: 14px;
+  color: #666;
+}
+
+.reto-date {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 16px;
+}
+
+.retos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 270px;
+  /* Altura máxima para la lista de retos */
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.retos-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.retos-list::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.reto-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 12px 16px;
+  border-radius: 12px;
+  transition: background 0.2s ease;
+}
+
+.reto-item:hover {
+  background: #eefdf3;
+}
+
+.reto-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reto-icon {
+  font-size: 20px;
+}
+
+.reto-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.reto-points {
+  font-weight: normal;
+  font-size: 12px;
+  color: #22c55e;
+  margin-left: 6px;
+}
+
+.reto-subtext {
+  font-size: 12px;
+  color: #555;
+}
+
+.reto-checkbox {
+  width: 18px;
+  height: 18px;
+  min-height: 48px;
+  accent-color: #22c55e;
+  cursor: pointer;
+}
+
+/* Estilos para el modal de añadir reto */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeInScale 0.25s ease;
+}
+
+.modal-content h3 {
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.modal-content textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: none;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.modal-buttons button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-buttons button:first-child {
+  background-color: #22c55e;
+  color: white;
+}
+
+.modal-buttons button:last-child {
+  background-color: #ccc;
+  color: black;
+}
+
+/* Animación de entrada */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

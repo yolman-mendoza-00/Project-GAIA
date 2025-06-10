@@ -1,0 +1,586 @@
+/* Reset y base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-y: auto; /* permite scroll vertical */
+  overflow-x: hidden; /* evita scroll lateral si no lo quieres */
+}
+
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 24px;
+  padding: 10px;
+  min-height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #f0fdf4;
+}
+
+/* Panel Izquierdo */
+.left-panel {
+  flex: 0 0 35%;
+  max-width: 480px;
+  min-width: 300px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  text-align: center;
+
+}
+
+.left-panel h2 {
+  margin-bottom: 16px;
+}
+
+/* Imagen circular con rotación */
+.section-banner {
+  width: 350px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: url("../img/Planeta.png") center center;
+  background-size: cover;
+  animation: earthRotate 30s linear infinite;
+  box-shadow:
+    0px 0 20px rgba(255, 255, 255, 0.2),
+    -5px 0px 8px #c3f4ff inset,
+    15px 2px 25px #000 inset,
+    -24px -2px 34px #c3f4ff99 inset,
+    250px 0px 44px #00000066 inset,
+    150px 0px 38px #000000aa inset;
+  margin: 0 auto 70px auto;
+}
+
+@keyframes earthRotate {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.stats {
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Panel Central */
+.center-panel {
+  flex: 0 0 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  text-align: center;
+}
+
+/* Panel Derecho */
+.right-panel {
+  flex: 0 0 35%;
+  max-width: 350px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  text-align: center;
+}
+
+.right-panel .cardUser {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.right-panel .card {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.right-panel .user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right-panel .user-info p.bold {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.right-panel .user-info img.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+  text-align: left;
+}
+
+.modal-content button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  background-color: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.right-panel .buttons {
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
+  flex-direction: row;
+}
+
+.right-panel .buttons button {
+  width: 100%;
+  color: #868585;
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #f9f9f9;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.right-panel .upcoming-challenges p.bold {
+  font-weight: bold;
+  margin: 0;
+}
+
+.right-panel .upcoming-challenges ul {
+  font-size: 14px;
+  margin-top: 8px;
+  padding-left: 16px;
+}
+
+.right-panel .upcoming-challenges ul li {
+  margin-bottom: 6px;
+}
+
+.right-panel .upcoming-challenges ul li span.time {
+  color: #555;
+}
+
+/* Media Queries */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 100%;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .left-panel,
+  .center-panel,
+  .right-panel {
+    min-width: 200px;
+
+  }
+
+  .left-panel {
+    flex: 0 0 30%;
+  }
+
+  .center-panel {
+    flex: 0 0 50%;
+  }
+
+  .right-panel {
+    flex: 0 0 20%;
+  }
+
+  .section-banner {
+    width: 280px;
+    margin-bottom: 24px;
+  }
+}
+
+/* Móviles - pantallas pequeñas */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    padding: 16px;
+    gap: 24px;
+  }
+
+  .left-panel,
+  .center-panel,
+  .right-panel {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    min-width: auto;
+
+  }
+
+  .section-banner {
+    width: 200px;
+    margin-bottom: 24px;
+  }
+}
+
+.planet-stats {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.icon {
+  font-size: 24px;
+}
+
+.stat-title {
+  font-weight: bold;
+  margin: 0;
+  font-size: 16px;
+}
+
+.stat-value {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 10px;
+  background-color: #ddd;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: #22c55e;
+  /* verde */
+  border-radius: 6px;
+}
+
+.stats .stat-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.stat-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  /* usa viewport width */
+  height: 100vh;
+  /* usa viewport height */
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.modal-buttons button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-buttons button:first-child {
+  background-color: #22c55e;
+  color: white;
+}
+
+.modal-buttons button:last-child {
+  background-color: #ccc;
+}
+
+/* Avatar con icono de edición */
+.avatar-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.edit-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #ffffff;
+  border-radius: 50%;
+  padding: 4px;
+  font-size: 14px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.edit-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Modal Overlay (fondo semi-transparente) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Contenido del Modal */
+.modal-content {
+  background: white;
+  padding: 20px 25px;
+  border-radius: 10px;
+  width: 320px;
+  max-width: 90vw;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Título modal */
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
+/* Etiquetas y select/input */
+.modal-content label {
+  margin-top: 20px;
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Select e input text */
+.modal-content select,
+.modal-content input[type="text"],
+.modal-content input[type="file"] {
+  width: 100%;
+  padding: 6px 8px;
+  margin-top: 5px;
+  border: 1.5px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+/* Grupo de radios para tema */
+.radio-group {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 8px;
+}
+
+.radio-group label {
+  font-weight: 500;
+  color: #444;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Imagen preview */
+.modal-content img {
+  display: block;
+  margin: 10px auto;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 2px solid #888;
+}
+
+/* Botones modal */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+/* Botones estilo */
+.modal-buttons button {
+  flex: 1;
+  padding: 10px 15px;
+  margin: 0 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+/* Botón guardar / confirmar */
+.modal-buttons button.confirm {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.modal-buttons button.confirm:hover {
+  background-color: #45a049;
+}
+
+/* Botón cancelar */
+.modal-buttons button.cancel {
+  background-color: #ccc;
+  color: #333;
+}
+
+.modal-buttons button.cancel:hover {
+  background-color: #bbb;
+}
+
+/* Contenedor de la barra */
+.progress-container {
+  position: relative;
+  width: 100%;
+  height: 18px;
+  background: linear-gradient(90deg, #e5f7eb, #f0fdf4);
+  border-radius: 999px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+/* Barra de progreso */
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  border-radius: 999px;
+  transition: width 0.6s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  position: relative;
+}
+
+/* Texto dentro de la barra */
+.progress-text {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
