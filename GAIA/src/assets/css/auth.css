@@ -1,0 +1,107 @@
+/* Reseteo y base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  overflow: auto;
+}
+
+/* Contenedor principal */
+.auth-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+/* Secciones */
+.image-section-auth,
+.form-section-auth {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: transform 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto; /* scroll interno si se necesita */
+}
+
+/* Imagen por defecto a la izquierda */
+.image-section-auth {
+  left: 0;
+  background-color: #ffffff;
+}
+
+/* Formulario por defecto a la derecha */
+.form-section-auth {
+  right: 0;
+  background-color: #fff;
+  z-index: 1;
+}
+
+/* Transiciones en modo registro */
+.auth-container.register-mode .image-section-auth {
+  transform: translateX(100%);
+}
+.auth-container.register-mode .form-section-auth {
+  transform: translateX(-100%);
+}
+
+/* Imagen */
+.auth-image {
+  width: 80%;
+  height: 95%;
+  border-radius: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  html, body {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .auth-container {
+    flex-direction: column;
+    position: static;
+
+    min-height: 100vh;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .image-section-auth,
+  .form-section-auth {
+    position: static;
+    width: 100%;
+    height: auto;
+    transform: none !important;
+
+    display: flex;
+    padding: 20px;
+    overflow: visible; /* permite que el contenido crezca */
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .auth-image {
+    width: 60%;
+    height: auto;
+    max-width: 300px;
+    margin: 20px auto;
+    display: block;
+  }
+}
